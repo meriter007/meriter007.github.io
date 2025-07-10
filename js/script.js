@@ -15,6 +15,7 @@ class PortfolioManager {
         this.setupCodeToggle();
         this.setupContactForm();
         this.setupSmoothScroll();
+        this.setupPopups();
     }
 
     // Language Management
@@ -222,6 +223,424 @@ class PortfolioManager {
                 }
             });
         });
+    }
+
+    // Popup System
+    setupPopups() {
+        const courseCards = document.querySelectorAll('.course-card');
+        const certCards = document.querySelectorAll('.cert-card');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popupClose = document.getElementById('popupClose');
+        
+        // Course cards
+        courseCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const courseId = card.dataset.course;
+                this.showCoursePopup(courseId);
+            });
+        });
+        
+        // Certification cards
+        certCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const certId = card.dataset.cert;
+                this.showCertPopup(certId);
+            });
+        });
+        
+        // Close popup
+        popupClose.addEventListener('click', () => {
+            this.closePopup();
+        });
+        
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                this.closePopup();
+            }
+        });
+        
+        // Close with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.closePopup();
+            }
+        });
+    }
+    
+    showCoursePopup(courseId) {
+        const courseData = this.getCourseData(courseId);
+        const popupTitle = document.getElementById('popupTitle');
+        const popupContent = document.getElementById('popupContent');
+        const popupOverlay = document.getElementById('popupOverlay');
+        
+        popupTitle.textContent = courseData.title;
+        popupContent.innerHTML = this.generateCoursePopupContent(courseData);
+        popupOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    showCertPopup(certId) {
+        const certData = this.getCertData(certId);
+        const popupTitle = document.getElementById('popupTitle');
+        const popupContent = document.getElementById('popupContent');
+        const popupOverlay = document.getElementById('popupOverlay');
+        
+        popupTitle.textContent = certData.title;
+        popupContent.innerHTML = this.generateCertPopupContent(certData);
+        popupOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    closePopup() {
+        const popupOverlay = document.getElementById('popupOverlay');
+        popupOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    getCourseData(courseId) {
+        const courses = {
+            'react-advanced': {
+                title: 'React Advanced Patterns',
+                provider: 'Frontend Masters',
+                duration: '8 ore',
+                level: 'Avanzato',
+                description: {
+                    it: 'Corso approfondito sui pattern avanzati di React, inclusi Render Props, Higher-Order Components, Context API e Custom Hooks.',
+                    en: 'In-depth course on advanced React patterns, including Render Props, Higher-Order Components, Context API and Custom Hooks.'
+                },
+                topics: {
+                    it: [
+                        'Render Props Pattern',
+                        'Higher-Order Components (HOCs)',
+                        'Context API e useContext',
+                        'Custom Hooks avanzati',
+                        'Performance Optimization',
+                        'Error Boundaries',
+                        'Suspense e Concurrent Features'
+                    ],
+                    en: [
+                        'Render Props Pattern',
+                        'Higher-Order Components (HOCs)',
+                        'Context API and useContext',
+                        'Advanced Custom Hooks',
+                        'Performance Optimization',
+                        'Error Boundaries',
+                        'Suspense and Concurrent Features'
+                    ]
+                },
+                skills: ['React', 'JavaScript', 'TypeScript', 'Performance'],
+                certificate: true,
+                completed: true
+            },
+            'nodejs-complete': {
+                title: 'Node.js Complete Guide',
+                provider: 'Udemy',
+                duration: '40 ore',
+                level: 'Intermedio',
+                description: {
+                    it: 'Corso completo su Node.js che copre dalle basi fino alle applicazioni enterprise con Express, MongoDB e deployment.',
+                    en: 'Complete Node.js course covering from basics to enterprise applications with Express, MongoDB and deployment.'
+                },
+                topics: {
+                    it: [
+                        'Fondamenti di Node.js',
+                        'Express.js Framework',
+                        'Database Integration (MongoDB)',
+                        'Authentication & Authorization',
+                        'RESTful APIs',
+                        'GraphQL',
+                        'Testing con Jest',
+                        'Deployment e DevOps'
+                    ],
+                    en: [
+                        'Node.js Fundamentals',
+                        'Express.js Framework',
+                        'Database Integration (MongoDB)',
+                        'Authentication & Authorization',
+                        'RESTful APIs',
+                        'GraphQL',
+                        'Testing with Jest',
+                        'Deployment and DevOps'
+                    ]
+                },
+                skills: ['Node.js', 'Express', 'MongoDB', 'JWT'],
+                certificate: true,
+                completed: true
+            },
+            'ml-basics': {
+                title: 'Machine Learning Basics',
+                provider: 'Coursera',
+                duration: '60 ore',
+                level: 'Principiante',
+                description: {
+                    it: 'Introduzione al Machine Learning con Python, algoritmi di base e applicazioni pratiche.',
+                    en: 'Introduction to Machine Learning with Python, basic algorithms and practical applications.'
+                },
+                topics: {
+                    it: [
+                        'Introduzione al ML',
+                        'Supervised Learning',
+                        'Unsupervised Learning',
+                        'Python per Data Science',
+                        'Scikit-learn',
+                        'Data Preprocessing',
+                        'Model Evaluation'
+                    ],
+                    en: [
+                        'Introduction to ML',
+                        'Supervised Learning',
+                        'Unsupervised Learning',
+                        'Python for Data Science',
+                        'Scikit-learn',
+                        'Data Preprocessing',
+                        'Model Evaluation'
+                    ]
+                },
+                skills: ['Python', 'Scikit-learn', 'Pandas', 'NumPy'],
+                certificate: false,
+                completed: false
+            },
+            'docker-k8s': {
+                title: 'Docker & Kubernetes',
+                provider: 'Linux Academy',
+                duration: '30 ore',
+                level: 'Intermedio',
+                description: {
+                    it: 'Corso completo su containerizzazione con Docker e orchestrazione con Kubernetes.',
+                    en: 'Complete course on containerization with Docker and orchestration with Kubernetes.'
+                },
+                topics: {
+                    it: [
+                        'Docker Fundamentals',
+                        'Docker Compose',
+                        'Kubernetes Architecture',
+                        'Pods e Services',
+                        'Deployments',
+                        'ConfigMaps e Secrets',
+                        'Monitoring e Logging'
+                    ],
+                    en: [
+                        'Docker Fundamentals',
+                        'Docker Compose',
+                        'Kubernetes Architecture',
+                        'Pods and Services',
+                        'Deployments',
+                        'ConfigMaps and Secrets',
+                        'Monitoring and Logging'
+                    ]
+                },
+                skills: ['Docker', 'Kubernetes', 'DevOps', 'YAML'],
+                certificate: true,
+                completed: false
+            }
+        };
+        
+        return courses[courseId] || {};
+    }
+    
+    getCertData(certId) {
+        const certifications = {
+            'aws-architect': {
+                title: 'AWS Certified Solutions Architect',
+                provider: 'Amazon Web Services',
+                level: 'Associate',
+                validUntil: '2026',
+                description: {
+                    it: 'Certificazione che dimostra competenze nella progettazione di architetture distribuite su AWS.',
+                    en: 'Certification demonstrating skills in designing distributed architectures on AWS.'
+                },
+                skills: {
+                    it: [
+                        'Progettazione di architetture resilienti',
+                        'Definizione di architetture performanti',
+                        'Specifica di applicazioni sicure',
+                        'Progettazione di soluzioni cost-effective',
+                        'Definizione di architetture operationally excellent'
+                    ],
+                    en: [
+                        'Design resilient architectures',
+                        'Define performant architectures',
+                        'Specify secure applications',
+                        'Design cost-optimized solutions',
+                        'Define operationally excellent architectures'
+                    ]
+                },
+                technologies: ['AWS EC2', 'AWS S3', 'AWS RDS', 'AWS Lambda', 'AWS VPC'],
+                examScore: '850/1000',
+                completed: true
+            },
+            'k8s-admin': {
+                title: 'Certified Kubernetes Administrator',
+                provider: 'Linux Foundation',
+                level: 'Professional',
+                validUntil: '2027',
+                description: {
+                    it: 'Certificazione per amministratori Kubernetes che dimostra competenze nella gestione di cluster.',
+                    en: 'Kubernetes administrator certification demonstrating cluster management skills.'
+                },
+                skills: {
+                    it: [
+                        'Installazione e configurazione cluster',
+                        'Gestione workloads e scheduling',
+                        'Servizi e networking',
+                        'Storage management',
+                        'Troubleshooting',
+                        'Sicurezza del cluster'
+                    ],
+                    en: [
+                        'Cluster installation and configuration',
+                        'Workloads and scheduling management',
+                        'Services and networking',
+                        'Storage management',
+                        'Troubleshooting',
+                        'Cluster security'
+                    ]
+                },
+                technologies: ['Kubernetes', 'Docker', 'etcd', 'kubectl', 'Helm'],
+                examScore: 'In corso',
+                completed: false
+            },
+            'gcp-dev': {
+                title: 'Google Cloud Professional Developer',
+                provider: 'Google Cloud',
+                level: 'Professional',
+                validUntil: '2027',
+                description: {
+                    it: 'Certificazione per sviluppatori che costruiscono applicazioni scalabili su Google Cloud.',
+                    en: 'Certification for developers building scalable applications on Google Cloud.'
+                },
+                skills: {
+                    it: [
+                        'Progettazione di applicazioni cloud-native',
+                        'Costruzione e testing di applicazioni',
+                        'Deployment di applicazioni',
+                        'Integrazione con servizi Google Cloud',
+                        'Gestione di dati e storage'
+                    ],
+                    en: [
+                        'Designing cloud-native applications',
+                        'Building and testing applications',
+                        'Deploying applications',
+                        'Integrating Google Cloud services',
+                        'Managing data and storage'
+                    ]
+                },
+                technologies: ['GCP', 'Cloud Functions', 'Cloud Run', 'Firestore', 'BigQuery'],
+                examScore: 'Pianificato',
+                completed: false
+            },
+            'scrum-master': {
+                title: 'Certified Scrum Master',
+                provider: 'Scrum Alliance',
+                level: 'Professional',
+                validUntil: '2025',
+                description: {
+                    it: 'Certificazione che dimostra competenze nella facilitazione di team Scrum e metodologie agili.',
+                    en: 'Certification demonstrating skills in facilitating Scrum teams and agile methodologies.'
+                },
+                skills: {
+                    it: [
+                        'Facilitazione di eventi Scrum',
+                        'Coaching del team',
+                        'Rimozione di impedimenti',
+                        'Promozione di pratiche agili',
+                        'Collaborazione con Product Owner'
+                    ],
+                    en: [
+                        'Facilitating Scrum events',
+                        'Team coaching',
+                        'Impediment removal',
+                        'Promoting agile practices',
+                        'Product Owner collaboration'
+                    ]
+                },
+                technologies: ['Scrum', 'Agile', 'Jira', 'Confluence', 'Kanban'],
+                examScore: 'Certificato',
+                completed: true
+            }
+        };
+        
+        return certifications[certId] || {};
+    }
+    
+    generateCoursePopupContent(courseData) {
+        const lang = this.currentLang;
+        const description = courseData.description[lang] || courseData.description.it;
+        const topics = courseData.topics[lang] || courseData.topics.it;
+        
+        return `
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Descrizione' : 'Description'}</h4>
+                <p>${description}</p>
+            </div>
+            
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Dettagli' : 'Details'}</h4>
+                <p><strong>${lang === 'it' ? 'Provider' : 'Provider'}:</strong> ${courseData.provider}</p>
+                <p><strong>${lang === 'it' ? 'Durata' : 'Duration'}:</strong> ${courseData.duration}</p>
+                <p><strong>${lang === 'it' ? 'Livello' : 'Level'}:</strong> ${courseData.level}</p>
+                <p><strong>${lang === 'it' ? 'Certificato' : 'Certificate'}:</strong> ${courseData.certificate ? (lang === 'it' ? 'Sì' : 'Yes') : (lang === 'it' ? 'No' : 'No')}</p>
+            </div>
+            
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Argomenti trattati' : 'Topics covered'}</h4>
+                <ul>
+                    ${topics.map(topic => `<li>${topic}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Competenze acquisite' : 'Skills acquired'}</h4>
+                <div class="popup-tech-grid">
+                    ${courseData.skills.map(skill => `
+                        <div class="popup-tech-item">
+                            <i class="fas fa-check-circle" style="color: var(--accent-success);"></i>
+                            <span>${skill}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    generateCertPopupContent(certData) {
+        const lang = this.currentLang;
+        const description = certData.description[lang] || certData.description.it;
+        const skills = certData.skills[lang] || certData.skills.it;
+        
+        return `
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Descrizione' : 'Description'}</h4>
+                <p>${description}</p>
+            </div>
+            
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Dettagli' : 'Details'}</h4>
+                <p><strong>${lang === 'it' ? 'Provider' : 'Provider'}:</strong> ${certData.provider}</p>
+                <p><strong>${lang === 'it' ? 'Livello' : 'Level'}:</strong> ${certData.level}</p>
+                ${certData.validUntil ? `<p><strong>${lang === 'it' ? 'Valida fino al' : 'Valid until'}:</strong> ${certData.validUntil}</p>` : ''}
+                ${certData.examScore ? `<p><strong>${lang === 'it' ? 'Punteggio' : 'Score'}:</strong> ${certData.examScore}</p>` : ''}
+            </div>
+            
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Competenze certificate' : 'Certified skills'}</h4>
+                <ul>
+                    ${skills.map(skill => `<li>${skill}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="popup-section">
+                <h4>${lang === 'it' ? 'Tecnologie' : 'Technologies'}</h4>
+                <div class="popup-tech-grid">
+                    ${certData.technologies.map(tech => `
+                        <div class="popup-tech-item">
+                            <i class="fas fa-cog" style="color: var(--accent-primary);"></i>
+                            <span>${tech}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
     }
 
     // Notification System
