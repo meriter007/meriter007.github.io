@@ -3,34 +3,740 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Marco Rossi - Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Nome Cognome</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Progetti</a>
-            <a href="#contact">Contatti</a>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">MR</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            
+            <div class="nav-controls">
+                <!-- Language Switch -->
+                <div class="language-switch">
+                    <button class="lang-btn active" data-lang="it">🇮🇹</button>
+                    <button class="lang-btn" data-lang="en">🇬🇧</button>
+                </div>
+                
+                <!-- Theme Switch -->
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <section id="about">
-        <h2>Chi sono</h2>
-        <p>Una breve introduzione su di te.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Progetti</h2>
-        <div class="project-grid">
-            <!-- Aggiungi qui i tuoi progetti -->
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="typing-text" data-it="Ciao, sono Marco Rossi" data-en="Hi, I'm Marco Rossi"></span>
+                        <span class="cursor">|</span>
+                    </h1>
+                    <h2 class="hero-subtitle" data-it="Full-Stack Developer" data-en="Full-Stack Developer">Full-Stack Developer</h2>
+                    <p class="hero-description" data-it="Trasformo idee in codice elegante e funzionale. Specializzato in React, Node.js e architetture moderne." data-en="I transform ideas into elegant and functional code. Specialized in React, Node.js and modern architectures.">
+                        Trasformo idee in codice elegante e funzionale. Specializzato in React, Node.js e architetture moderne.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary" data-it="Contattami" data-en="Contact Me">Contattami</a>
+                        <a href="#projects" class="btn btn-secondary" data-it="I miei progetti" data-en="My Projects">I miei progetti</a>
+                    </div>
+                </div>
+                
+                <div class="hero-avatar">
+                    <div class="avatar-container">
+                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Marco Rossi" class="avatar-img">
+                        <div class="avatar-border"></div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:marco@example.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <a href="mailto:email@example.com">Email</a>
-        <a href="https://github.com/tuoprofilo">GitHub</a>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-it="Chi sono" data-en="About Me">Chi sono</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-it="Sono un sviluppatore full-stack con oltre 5 anni di esperienza nella creazione di applicazioni web moderne e scalabili. La mia passione per la tecnologia mi spinge a rimanere sempre aggiornato sulle ultime tendenze del settore." data-en="I'm a full-stack developer with over 5 years of experience creating modern and scalable web applications. My passion for technology drives me to stay updated on the latest industry trends.">
+                        Sono un sviluppatore full-stack con oltre 5 anni di esperienza nella creazione di applicazioni web moderne e scalabili. La mia passione per la tecnologia mi spinge a rimanere sempre aggiornato sulle ultime tendenze del settore.
+                    </p>
+                    
+                    <p data-it="Credo fermamente nell'importanza del codice pulito, delle best practices e dell'approccio user-centered. Ogni progetto è un'opportunità per imparare qualcosa di nuovo e creare soluzioni innovative." data-en="I firmly believe in the importance of clean code, best practices and user-centered approach. Every project is an opportunity to learn something new and create innovative solutions.">
+                        Credo fermamente nell'importanza del codice pulito, delle best practices e dell'approccio user-centered. Ogni progetto è un'opportunità per imparare qualcosa di nuovo e creare soluzioni innovative.
+                    </p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label" data-it="Progetti completati" data-en="Completed Projects">Progetti completati</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label" data-it="Anni di esperienza" data-en="Years of Experience">Anni di esperienza</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label" data-it="Tecnologie" data-en="Technologies">Tecnologie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title" data-it="Esperienza" data-en="Experience">Esperienza</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Full-Stack Developer</h3>
+                        <h4>TechCorp Solutions</h4>
+                        <span class="timeline-date">2022 - Presente</span>
+                        <p data-it="Sviluppo di applicazioni enterprise con React, Node.js e PostgreSQL. Gestione team di 4 sviluppatori junior." data-en="Development of enterprise applications with React, Node.js and PostgreSQL. Managing team of 4 junior developers.">
+                            Sviluppo di applicazioni enterprise con React, Node.js e PostgreSQL. Gestione team di 4 sviluppatori junior.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Full-Stack Developer</h3>
+                        <h4>StartupXYZ</h4>
+                        <span class="timeline-date">2020 - 2022</span>
+                        <p data-it="Creazione di MVP e prototipazione rapida. Implementazione di architetture microservizi e CI/CD." data-en="MVP creation and rapid prototyping. Implementation of microservices architectures and CI/CD.">
+                            Creazione di MVP e prototipazione rapida. Implementazione di architetture microservizi e CI/CD.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Frontend Developer</h3>
+                        <h4>WebAgency Pro</h4>
+                        <span class="timeline-date">2019 - 2020</span>
+                        <p data-it="Sviluppo di interfacce utente responsive e accessibili. Ottimizzazione performance e SEO." data-en="Development of responsive and accessible user interfaces. Performance and SEO optimization.">
+                            Sviluppo di interfacce utente responsive e accessibili. Ottimizzazione performance e SEO.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">SASS</span>
+                            <span class="tech-tag">Webpack</span>
+                            <span class="tech-tag">jQuery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-it="Competenze" data-en="Skills">Competenze</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 data-it="Frontend" data-en="Frontend">Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Vue.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TypeScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CSS/SASS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 data-it="Backend" data-en="Backend">Backend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="87"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 data-it="Strumenti" data-en="Tools">Strumenti</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="83"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">AWS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Figma</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <h2 class="section-title" data-it="Corsi e Certificazioni" data-en="Courses & Certifications">Corsi e Certificazioni</h2>
+            
+            <div class="cert-timeline">
+                <div class="cert-item completed">
+                    <div class="cert-status">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>AWS Certified Solutions Architect</h3>
+                        <p class="cert-provider">Amazon Web Services</p>
+                        <span class="cert-date">2023</span>
+                        <span class="cert-badge completed-badge" data-it="Completato" data-en="Completed">Completato</span>
+                    </div>
+                </div>
+                
+                <div class="cert-item completed">
+                    <div class="cert-status">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>React Advanced Patterns</h3>
+                        <p class="cert-provider">Frontend Masters</p>
+                        <span class="cert-date">2023</span>
+                        <span class="cert-badge completed-badge" data-it="Completato" data-en="Completed">Completato</span>
+                    </div>
+                </div>
+                
+                <div class="cert-item in-progress">
+                    <div class="cert-status">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Kubernetes Administrator</h3>
+                        <p class="cert-provider">Linux Foundation</p>
+                        <span class="cert-date">2024</span>
+                        <span class="cert-badge progress-badge" data-it="In corso" data-en="In Progress">In corso</span>
+                    </div>
+                </div>
+                
+                <div class="cert-item planned">
+                    <div class="cert-status">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Machine Learning Specialization</h3>
+                        <p class="cert-provider">Coursera</p>
+                        <span class="cert-date">2024</span>
+                        <span class="cert-badge planned-badge" data-it="Pianificato" data-en="Planned">Pianificato</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title" data-it="Progetti" data-en="Projects">Progetti</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>E-Commerce Platform</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="project-description" data-it="Piattaforma e-commerce completa con gestione inventario, pagamenti e dashboard admin." data-en="Complete e-commerce platform with inventory management, payments and admin dashboard.">
+                        Piattaforma e-commerce completa con gestione inventario, pagamenti e dashboard admin.
+                    </p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                    
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-title">ProductCard.jsx</span>
+                            <button class="code-toggle">
+                                <i class="fas fa-code"></i>
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>const ProductCard = ({ product }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const handleAddToCart = async () => {
+    setIsLoading(true);
+    try {
+      await addToCart(product.id);
+      showNotification('Prodotto aggiunto!');
+    } catch (error) {
+      showError('Errore nell\'aggiunta');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
+  return (
+    &lt;div className="product-card"&gt;
+      &lt;img src={product.image} alt={product.name} /&gt;
+      &lt;h3&gt;{product.name}&lt;/h3&gt;
+      &lt;p className="price"&gt;€{product.price}&lt;/p&gt;
+      &lt;button 
+        onClick={handleAddToCart}
+        disabled={isLoading}
+        className="add-to-cart-btn"
+      &gt;
+        {isLoading ? 'Aggiungendo...' : 'Aggiungi al carrello'}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Task Management App</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="project-description" data-it="App per la gestione di progetti e task con collaborazione in tempo reale." data-en="Project and task management app with real-time collaboration.">
+                        App per la gestione di progetti e task con collaborazione in tempo reale.
+                    </p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                    </div>
+                    
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-title">TaskBoard.vue</span>
+                            <button class="code-toggle">
+                                <i class="fas fa-code"></i>
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>&lt;template&gt;
+  &lt;div class="task-board"&gt;
+    &lt;div 
+      v-for="column in columns" 
+      :key="column.id"
+      class="task-column"
+      @drop="onDrop($event, column.id)"
+      @dragover.prevent
+    &gt;
+      &lt;h3&gt;{{ column.title }}&lt;/h3&gt;
+      &lt;TaskCard
+        v-for="task in column.tasks"
+        :key="task.id"
+        :task="task"
+        @drag-start="onDragStart"
+        draggable="true"
+      /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      draggedTask: null,
+      columns: [
+        { id: 'todo', title: 'Da fare', tasks: [] },
+        { id: 'progress', title: 'In corso', tasks: [] },
+        { id: 'done', title: 'Completato', tasks: [] }
+      ]
+    }
+  },
+  methods: {
+    onDragStart(task) {
+      this.draggedTask = task;
+    },
+    onDrop(event, columnId) {
+      if (this.draggedTask) {
+        this.moveTask(this.draggedTask.id, columnId);
+        this.draggedTask = null;
+      }
+    }
+  }
+}
+&lt;/script&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Weather Dashboard</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="project-description" data-it="Dashboard meteo con previsioni, grafici interattivi e geolocalizzazione." data-en="Weather dashboard with forecasts, interactive charts and geolocation.">
+                        Dashboard meteo con previsioni, grafici interattivi e geolocalizzazione.
+                    </p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">OpenWeather API</span>
+                        <span class="tech-tag">PWA</span>
+                    </div>
+                    
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-title">WeatherChart.js</span>
+                            <button class="code-toggle">
+                                <i class="fas fa-code"></i>
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>import { Line } from 'react-chartjs-2';
+
+const WeatherChart = ({ weatherData }) => {
+  const chartData = {
+    labels: weatherData.map(item => 
+      new Date(item.dt * 1000).toLocaleDateString()
+    ),
+    datasets: [
+      {
+        label: 'Temperatura (°C)',
+        data: weatherData.map(item => item.main.temp),
+        borderColor: 'rgb(75, 192, 192)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        tension: 0.4
+      },
+      {
+        label: 'Umidità (%)',
+        data: weatherData.map(item => item.main.humidity),
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        tension: 0.4
+      }
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Previsioni Meteo 5 Giorni'
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
+  return &lt;Line data={chartData} options={options} /&gt;;
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Development Section -->
+    <section class="personal-dev" id="personal-dev">
+        <div class="container">
+            <h2 class="section-title" data-it="Sviluppo Personale" data-en="Personal Development">Sviluppo Personale</h2>
+            
+            <div class="dev-categories">
+                <div class="dev-category">
+                    <h3 data-it="In Corso" data-en="In Progress">In Corso</h3>
+                    <div class="dev-items">
+                        <div class="dev-item">
+                            <i class="fas fa-book"></i>
+                            <div class="dev-content">
+                                <h4 data-it="Studio di Machine Learning" data-en="Machine Learning Study">Studio di Machine Learning</h4>
+                                <p data-it="Approfondimento di algoritmi ML e implementazione con Python" data-en="Deep dive into ML algorithms and Python implementation">Approfondimento di algoritmi ML e implementazione con Python</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-code"></i>
+                            <div class="dev-content">
+                                <h4 data-it="Contributi Open Source" data-en="Open Source Contributions">Contributi Open Source</h4>
+                                <p data-it="Partecipazione attiva a progetti React e Vue.js" data-en="Active participation in React and Vue.js projects">Partecipazione attiva a progetti React e Vue.js</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dev-category">
+                    <h3 data-it="Completati" data-en="Completed">Completati</h3>
+                    <div class="dev-items">
+                        <div class="dev-item">
+                            <i class="fas fa-trophy"></i>
+                            <div class="dev-content">
+                                <h4>Hackathon 2023</h4>
+                                <p data-it="1° posto nella categoria 'Best Innovation' con app per sostenibilità" data-en="1st place in 'Best Innovation' category with sustainability app">1° posto nella categoria "Best Innovation" con app per sostenibilità</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-users"></i>
+                            <div class="dev-content">
+                                <h4 data-it="Mentoring Junior Developers" data-en="Mentoring Junior Developers">Mentoring Junior Developers</h4>
+                                <p data-it="Supporto e formazione di 8 sviluppatori junior nel 2023" data-en="Support and training of 8 junior developers in 2023">Supporto e formazione di 8 sviluppatori junior nel 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dev-category">
+                    <h3 data-it="Pianificati" data-en="Planned">Pianificati</h3>
+                    <div class="dev-items">
+                        <div class="dev-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="dev-content">
+                                <h4 data-it="Conferenza Tech 2024" data-en="Tech Conference 2024">Conferenza Tech 2024</h4>
+                                <p data-it="Speaker su 'Modern React Patterns' alla ReactConf" data-en="Speaker on 'Modern React Patterns' at ReactConf">Speaker su "Modern React Patterns" alla ReactConf</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-rocket"></i>
+                            <div class="dev-content">
+                                <h4 data-it="Side Project: AI Assistant" data-en="Side Project: AI Assistant">Side Project: AI Assistant</h4>
+                                <p data-it="Sviluppo di un assistente AI per sviluppatori" data-en="Development of an AI assistant for developers">Sviluppo di un assistente AI per sviluppatori</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-it="Contattami" data-en="Contact Me">Contattami</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-btn red"></span>
+                                <span class="terminal-btn yellow"></span>
+                                <span class="terminal-btn green"></span>
+                            </div>
+                            <span class="terminal-title">marco@portfolio:~$</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">whoami</span>
+                            </div>
+                            <div class="terminal-output">Marco Rossi - Full-Stack Developer</div>
+                            
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">cat contact.txt</span>
+                            </div>
+                            <div class="terminal-output">
+                                📧 marco.rossi@example.com<br>
+                                📱 +39 123 456 7890<br>
+                                📍 Milano, Italia<br>
+                                🌐 Available for remote work
+                            </div>
+                            
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">ls -la skills/</span>
+                            </div>
+                            <div class="terminal-output">
+                                drwxr-xr-x  react/<br>
+                                drwxr-xr-x  nodejs/<br>
+                                drwxr-xr-x  python/<br>
+                                drwxr-xr-x  docker/<br>
+                                -rw-r--r--  passion.txt<br>
+                                -rw-r--r--  creativity.js
+                            </div>
+                            
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-cursor">|</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form class="form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-it="Nome" data-en="Name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" data-it="Oggetto" data-en="Subject">Oggetto</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-it="Messaggio" data-en="Message">Messaggio</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" data-it="Invia Messaggio" data-en="Send Message">Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-it="© 2024 Marco Rossi. Realizzato con passione e caffè ☕" data-en="© 2024 Marco Rossi. Made with passion and coffee ☕">
+                    © 2024 Marco Rossi. Realizzato con passione e caffè ☕
+                </p>
+                <div class="footer-links">
+                    <a href="#" data-it="Privacy" data-en="Privacy">Privacy</a>
+                    <a href="#" data-it="Termini" data-en="Terms">Termini</a>
+                    <a href="#" data-it="Cookie" data-en="Cookies">Cookie</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="js/script.js"></script>
