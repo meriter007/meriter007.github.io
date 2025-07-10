@@ -1,23 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Nome Cognome</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Progetti</a>
+            <a href="#contact">Contatti</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Chi sono</h2>
+        <p>Una breve introduzione su di te.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Progetti</h2>
+        <div class="project-grid">
+            <!-- Aggiungi qui i tuoi progetti -->
+        </div>
+    </section>
+
+    <footer id="contact">
+        <a href="mailto:email@example.com">Email</a>
+        <a href="https://github.com/tuoprofilo">GitHub</a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
 </html>
