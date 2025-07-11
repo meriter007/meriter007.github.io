@@ -790,6 +790,36 @@ function initSkillsMarquee() {
 // Inizializza quando il DOM è pronto
 document.addEventListener('DOMContentLoaded', initSkillsMarquee);
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navContainer = document.querySelector('.nav-container');
+    
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+      });
+      
+      // Chiudi il menu quando si clicca fuori
+      document.addEventListener('click', function(e) {
+        if (!mobileToggle.contains(e.target)) {
+          mobileToggle.classList.remove('active');
+        }
+      });
+    }
+    
+    // Versione compatta per schermi medi (opzionale)
+    function checkCompactNav() {
+      if (window.innerWidth <= 992 && window.innerWidth > 768) {
+        navContainer.classList.add('compact');
+      } else {
+        navContainer.classList.remove('compact');
+      }
+    }
+    
+    window.addEventListener('resize', checkCompactNav);
+    checkCompactNav();
+  });
 // Se usi moduli ES6, esporta la funzione
 // export default initSkillsMarquee;
 // Initialize everything when DOM is loaded

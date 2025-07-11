@@ -20,11 +20,6 @@ class TerminalPortafolio {
             'clear': () => this.clearTerminal(),
             'theme': () => this.toggleTheme(),
             'lang': (args) => this.switchLanguage(args[0]),
-            /*'whoami': () => this.whoami(),
-            'pwd': () => this.pwd(),
-            'ls': () => this.ls(),
-            'cat': (args) => this.cat(args[0]),
-            'tree': () => this.tree(),*/
             'history': () => this.showHistory(),
             'exit': () => this.exit()
         };
@@ -1661,6 +1656,8 @@ class TerminalPortafolio {
         });
     }
 
+
+    
     switchLanguageUI(lang) {
         this.currentLang = lang;
         document.documentElement.lang = lang;
@@ -1748,6 +1745,36 @@ class TerminalPortafolio {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navContainer = document.querySelector('.nav-container');
+    
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+      });
+      
+      // Chiudi il menu quando si clicca fuori
+      document.addEventListener('click', function(e) {
+        if (!mobileToggle.contains(e.target)) {
+          mobileToggle.classList.remove('active');
+        }
+      });
+    }
+    
+    // Versione compatta per schermi medi (opzionale)
+    function checkCompactNav() {
+      if (window.innerWidth <= 992 && window.innerWidth > 768) {
+        navContainer.classList.add('compact');
+      } else {
+        navContainer.classList.remove('compact');
+      }
+    }
+    
+    window.addEventListener('resize', checkCompactNav);
+    checkCompactNav();
+  });
 
 // Initialize terminal when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
