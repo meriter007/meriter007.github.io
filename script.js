@@ -1,5 +1,5 @@
 // Language and Theme Management
-class PortfolioManager {
+class PortafolioManager {
     constructor() {
         this.currentLang = 'it';
         this.currentTheme = 'light';
@@ -97,10 +97,33 @@ class PortfolioManager {
     // Typing Effect
     setupTypingEffect() {
         const typingElement = document.querySelector('.typing-text');
-        if (typingElement) {
-            const text = typingElement.dataset[this.currentLang];
-            this.typeText(typingElement, text);
-        }
+        const cursorElement = document.querySelector('.cursor');
+        
+        if (!typingElement || !cursorElement) return;
+    
+        // Nascondi inizialmente il cursore
+        cursorElement.style.opacity = '0';
+        
+        const text = typingElement.dataset[this.currentLang];
+        this.typeText(typingElement, cursorElement, text);
+    }
+    
+    typeText(element, cursor, text, speed = 100) {
+        element.textContent = '';
+        let i = 0;
+        
+        // Mostra il cursore quando inizia l'animazione
+        cursor.style.opacity = '1';
+        
+        const typeInterval = setInterval(() => {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typeInterval);
+                // Mantieni il cursore lampeggiante alla fine
+            }
+        }, speed);
     }
 
     typeText(element, text) {
@@ -771,8 +794,8 @@ document.addEventListener('DOMContentLoaded', initSkillsMarquee);
 // export default initSkillsMarquee;
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize main portfolio manager
-    const portfolio = new PortfolioManager();
+    // Initialize main Portafolio manager
+    const Portafolio = new PortafolioManager();
     
     // Add some interactive easter eggs
     let konamiCode = [];
@@ -783,7 +806,7 @@ document.addEventListener('DOMContentLoaded', () => {
         konamiCode = konamiCode.slice(-10);
         
         if (konamiCode.join(',') === konamiSequence.join(',')) {
-            portfolio.showNotification('🎉 Konami Code activated! You found the easter egg!', 'success');
+            Portafolio.showNotification('🎉 Konami Code activated! You found the easter egg!', 'success');
             document.body.style.animation = 'rainbow 2s infinite';
             setTimeout(() => {
                 document.body.style.animation = '';
@@ -801,6 +824,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
     
-    console.log('🚀 Portfolio loaded successfully!');
+    console.log('🚀 Portafolio loaded successfully!');
     console.log('💡 Try the terminal page for interactive commands!');
 });

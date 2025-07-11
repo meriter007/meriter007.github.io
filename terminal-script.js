@@ -1,5 +1,5 @@
-// Terminal Portfolio Manager
-class TerminalPortfolio {
+// Terminal Portafolio Manager
+class TerminalPortafolio {
     constructor() {
         this.currentLang = 'it';
         this.currentTheme = 'dark';
@@ -20,11 +20,11 @@ class TerminalPortfolio {
             'clear': () => this.clearTerminal(),
             'theme': () => this.toggleTheme(),
             'lang': (args) => this.switchLanguage(args[0]),
-            'whoami': () => this.whoami(),
+            /*'whoami': () => this.whoami(),
             'pwd': () => this.pwd(),
             'ls': () => this.ls(),
             'cat': (args) => this.cat(args[0]),
-            'tree': () => this.tree(),
+            'tree': () => this.tree(),*/
             'history': () => this.showHistory(),
             'exit': () => this.exit()
         };
@@ -78,7 +78,7 @@ class TerminalPortfolio {
         const [cmd, ...args] = command.toLowerCase().split(' ');
         
         // Add command to terminal output
-        this.addToTerminal(`mario@portfolio:~$ ${command}`, 'command');
+        this.addToTerminal(`mario@Portafolio:~$ ${command}`, 'command');
         
         if (this.commands[cmd]) {
             this.commands[cmd](args);
@@ -114,7 +114,7 @@ class TerminalPortfolio {
     <h3>📋 Comandi Disponibili:</h3>
     <div class="help-commands">
         <div class="help-category">
-            <h4>🔍 Esplorazione Portfolio:</h4>
+            <h4>🔍 Esplorazione Portafolio:</h4>
             <div class="help-item"><span class="cmd">about</span> - Informazioni su di me</div>
             <div class="help-item"><span class="cmd">experience</span> - Esperienze lavorative</div>
             <div class="help-item"><span class="cmd">skills</span> - Competenze tecniche</div>
@@ -138,7 +138,7 @@ class TerminalPortfolio {
     <h3>📋 Available Commands:</h3>
     <div class="help-commands">
         <div class="help-category">
-            <h4>🔍 Portfolio Exploration:</h4>
+            <h4>🔍 Portafolio Exploration:</h4>
             <div class="help-item"><span class="cmd">about</span> - About me information</div>
             <div class="help-item"><span class="cmd">experience</span> - Work experience</div>
             <div class="help-item"><span class="cmd">skills</span> - Technical skills</div>
@@ -154,14 +154,6 @@ class TerminalPortfolio {
             <div class="help-item"><span class="cmd">theme</span> - Toggle theme</div>
             <div class="help-item"><span class="cmd">lang [it|en]</span> - Switch language</div>
             <div class="help-item"><span class="cmd">history</span> - Command history</div>
-        </div>
-        <div class="help-category">
-            <h4>🐧 Unix-like Commands:</h4>
-            <div class="help-item"><span class="cmd">whoami</span> - Current user</div>
-            <div class="help-item"><span class="cmd">pwd</span> - Current directory</div>
-            <div class="help-item"><span class="cmd">ls</span> - List contents</div>
-            <div class="help-item"><span class="cmd">tree</span> - Portfolio structure</div>
-            <div class="help-item"><span class="cmd">cat [file]</span> - Show file content</div>
         </div>
     </div>
     <p class="help-tip">💡 Use TAB for autocompletion, ↑↓ for command history</p>
@@ -1515,68 +1507,6 @@ class TerminalPortfolio {
         this.setupContactForm();
     }
 
-    // Unix-like commands
-    whoami() {
-        this.addToTerminal('marco', 'output');
-    }
-
-    pwd() {
-        this.addToTerminal('/home/marco/portfolio', 'output');
-    }
-
-    ls() {
-        const files = [
-            'about.md',
-            'experience.json',
-            'skills.json',
-            'courses.json',
-            'certifications.json',
-            'projects/',
-            'webapps/',
-            'contact.vcf'
-        ];
-        
-        this.addToTerminal(files.join('  '), 'output');
-    }
-
-    cat(filename) {
-        const files = {
-            'about.md': this.currentLang === 'it' ? 
-                '# Marco Rossi\n\nFull-Stack Developer con 5+ anni di esperienza.\nSpecializzato in React, Node.js e architetture cloud.' :
-                '# Marco Rossi\n\nFull-Stack Developer with 5+ years of experience.\nSpecialized in React, Node.js and cloud architectures.',
-            'contact.vcf': 'BEGIN:VCARD\nFN:Marco Rossi\nEMAIL:marco.rossi@example.com\nTEL:+39 123 456 7890\nEND:VCARD'
-        };
-        
-        if (files[filename]) {
-            this.addToTerminal(`<pre>${files[filename]}</pre>`, 'output');
-        } else {
-            this.addToTerminal(`cat: ${filename}: No such file or directory`, 'error');
-        }
-    }
-
-    tree() {
-        const treeStructure = `
-portfolio/
-├── about.md
-├── experience.json
-├── skills.json
-├── courses.json
-├── certifications.json
-├── projects/
-│   ├── ecommerce-platform/
-│   └── task-management-app/
-├── webapps/
-│   ├── shopmaster-pro/
-│   ├── taskflow/
-│   ├── analytics-dashboard/
-│   ├── chatapp-pro/
-│   ├── ai-content-generator/
-│   └── fitness-tracker-pwa/
-└── contact.vcf`;
-        
-        this.addToTerminal(`<pre>${treeStructure}</pre>`, 'output');
-    }
-
     showHistory() {
         if (this.commandHistory.length === 0) {
             this.addToTerminal(this.currentLang === 'it' ? 'Nessun comando nella cronologia.' : 'No commands in history.', 'info');
@@ -1669,20 +1599,32 @@ portfolio/
 
     clearTerminal() {
         const terminalBody = document.getElementById('terminalBody');
-        const inputLine = terminalBody.querySelector('.terminal-input-line');
-        const welcome = terminalBody.querySelector('.terminal-welcome');
+        const dynamicContent = document.getElementById('dynamicContent');
         
-        // Remove all children except welcome and input line
-        while (terminalBody.firstChild) {
-            if (terminalBody.firstChild === welcome || terminalBody.firstChild === inputLine) {
-                terminalBody.firstChild = terminalBody.firstChild.nextSibling;
-            } else {
-                terminalBody.removeChild(terminalBody.firstChild);
+        // Seleziona solo gli elementi da rimuovere (escludendo welcome e input line)
+        const elementsToRemove = Array.from(terminalBody.children).filter(child => {
+            return !child.classList.contains('terminal-welcome') && 
+                   !child.classList.contains('terminal-input-line');
+        });
+        
+        // Aggiungi animazione di fade out
+        elementsToRemove.forEach(el => {
+            el.style.transition = 'opacity 0.3s ease';
+            el.style.opacity = '0';
+        });
+        
+        // Rimuovi dopo l'animazione
+        setTimeout(() => {
+            elementsToRemove.forEach(el => {
+                if (el.parentNode) el.parentNode.removeChild(el);
+            });
+            
+            if (dynamicContent) {
+                dynamicContent.innerHTML = '';
             }
-        }
-        
-        // Clear dynamic content
-        document.getElementById('dynamicContent').innerHTML = '';
+            
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }, 300);
     }
 
     toggleTheme() {
@@ -1809,7 +1751,7 @@ portfolio/
 
 // Initialize terminal when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const terminal = new TerminalPortfolio();
+    const terminal = new TerminalPortafolio();
     
     // Focus input on page load
     const input = document.getElementById('terminalInput');
@@ -1820,6 +1762,6 @@ document.addEventListener('DOMContentLoaded', () => {
         input.focus();
     });
     
-    console.log('🚀 Terminal Portfolio loaded successfully!');
+    console.log('🚀 Terminal Portafolio loaded successfully!');
     console.log('💡 Type "help" to see available commands');
 });
