@@ -579,6 +579,65 @@ section {
   transition: width 1s ease-in-out;
 }
 
+.skill-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+  cursor: grab;
+  user-select: none;
+}
+
+.skill-marquee-track {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  will-change: transform;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  transition: transform 0.2s;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+.skill-item i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.skill-description {
+  text-align: center;
+  margin-top: 1rem;
+  min-height: 50px;
+  font-style: italic;
+  color: #666;
+}
+
+/* Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.skill-marquee-track {
+  animation: marquee 20s linear infinite;
+}
+
+.skill-marquee-container:hover .skill-marquee-track {
+  animation-play-state: paused;
+}
 /* Courses */
 .courses {
   background-color: var(--bg-secondary);

@@ -711,7 +711,64 @@ class PortfolioManager {
         }
     }
 }
+// js/skills.js
+function initSkillsMarquee() {
+    const track = document.querySelector('.skill-marquee-track');
+    if (!track) return; // Esce se l'elemento non esiste
+    
+    const container = document.querySelector('.skill-marquee-container');
+    const descElement = document.getElementById('current-skill-desc');
+    let isDragging = false;
+    let startX, scrollLeft;
+    
+    // Clone items for infinite effect
+    const items = track.querySelectorAll('.skill-item');
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+    });
+    
+    // Mouse drag functionality
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        container.style.cursor = 'grabbing';
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    });
+    
+    container.addEventListener('mouseup', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    });
+    
+    container.addEventListener('mousemove', (e) => {
+        if(!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        track.style.transform = `translateX(${-walk}px)`;
+    });
+    
+    // Click on skill to show description
+    document.querySelectorAll('.skill-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const lang = document.documentElement.lang || 'it';
+            const desc = item.getAttribute(`data-desc-${lang}`);
+            if (descElement) descElement.textContent = desc;
+        });
+    });
+}
 
+// Inizializza quando il DOM è pronto
+document.addEventListener('DOMContentLoaded', initSkillsMarquee);
+
+// Se usi moduli ES6, esporta la funzione
+// export default initSkillsMarquee;
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize main portfolio manager
