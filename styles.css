@@ -1330,6 +1330,31 @@ section {
   animation: blink 1s infinite;
 }
 
+.skill-icons-marquee {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 40px;
+  animation: scrollIcons 30s linear infinite;
+  white-space: nowrap;
+  font-size: 2.5rem;
+}
+
+@keyframes scrollIcons {
+  from {
+      transform: translateX(0%);
+  }
+  to {
+      transform: translateX(-50%);
+  }
+}
+
 /* Form */
 .form {
   background-color: var(--bg-secondary);

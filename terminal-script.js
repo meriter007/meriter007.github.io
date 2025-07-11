@@ -78,7 +78,7 @@ class TerminalPortfolio {
         const [cmd, ...args] = command.toLowerCase().split(' ');
         
         // Add command to terminal output
-        this.addToTerminal(`marco@portfolio:~$ ${command}`, 'command');
+        this.addToTerminal(`mario@portfolio:~$ ${command}`, 'command');
         
         if (this.commands[cmd]) {
             this.commands[cmd](args);
@@ -130,14 +130,6 @@ class TerminalPortfolio {
             <div class="help-item"><span class="cmd">theme</span> - Cambia tema</div>
             <div class="help-item"><span class="cmd">lang [it|en]</span> - Cambia lingua</div>
             <div class="help-item"><span class="cmd">history</span> - Cronologia comandi</div>
-        </div>
-        <div class="help-category">
-            <h4>🐧 Comandi Unix-like:</h4>
-            <div class="help-item"><span class="cmd">whoami</span> - Utente corrente</div>
-            <div class="help-item"><span class="cmd">pwd</span> - Directory corrente</div>
-            <div class="help-item"><span class="cmd">ls</span> - Lista contenuti</div>
-            <div class="help-item"><span class="cmd">tree</span> - Struttura portfolio</div>
-            <div class="help-item"><span class="cmd">cat [file]</span> - Mostra contenuto file</div>
         </div>
     </div>
     <p class="help-tip">💡 Usa TAB per autocompletamento, ↑↓ per cronologia comandi</p>
