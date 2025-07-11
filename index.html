@@ -186,32 +186,71 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
+<!-- Skills Section -->
+<section class="skills" id="skills">
+    <div class="container">
         <h2 class="section-title" data-it="Competenze" data-en="Skills">Competenze</h2>
-        <div class="skill-icons-marquee">
-            <div class="marquee-track">
-                <i class="fab fa-react" style="color: #61DAFB;"></i>
-                <i class="fab fa-vuejs" style="color: #4FC08D;"></i>
-                <i class="fab fa-js-square" style="color: #F7DF1E;"></i>
-                <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
-                <i class="fab fa-node-js" style="color: #339933;"></i>
-                <i class="fab fa-python" style="color: #3776AB;"></i>
-                <i class="fas fa-database" style="color: #336791;"></i>
-                <i class="fas fa-leaf" style="color: #47A248;"></i>
-                <i class="fab fa-docker" style="color: #2496ED;"></i>
-                <i class="fab fa-aws" style="color: #FF9900;"></i>
-                <i class="fab fa-git-alt" style="color: #F05032;"></i>
-                <i class="fab fa-figma" style="color: #F24E1E;"></i>
-                <!-- Ripeti le icone per effetto continuo -->
-                <i class="fab fa-react" style="color: #61DAFB;"></i>
-                <i class="fab fa-vuejs" style="color: #4FC08D;"></i>
-                <i class="fab fa-js-square" style="color: #F7DF1E;"></i>
-                <!-- Aggiungi o duplica per migliorare l'effetto -->
+        
+        <!-- Marquee Container -->
+        <div class="skill-marquee-container">
+            <div class="skill-marquee-track">
+                <!-- Skill Items (repeated for seamless loop) -->
+                <div class="skill-item" data-tech="React" data-desc-it="Libreria JavaScript per interfacce utente" data-desc-en="JavaScript library for building UIs">
+                    <i class="fab fa-react" style="color: #61DAFB;"></i>
+                    <span class="skill-name">React</span>
+                </div>
+                <div class="skill-item" data-tech="Vue" data-desc-it="Framework JavaScript progressivo" data-desc-en="Progressive JavaScript framework">
+                    <i class="fab fa-vuejs" style="color: #4FC08D;"></i>
+                    <span class="skill-name">Vue</span>
+                </div>
+                <div class="skill-item" data-tech="JavaScript" data-desc-it="Linguaggio di programmazione per il web" data-desc-en="Web programming language">
+                    <i class="fab fa-js-square" style="color: #F7DF1E;"></i>
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                <div class="skill-item" data-tech="CSS3" data-desc-it="Stilizzazione pagine web" data-desc-en="Web styling language">
+                    <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+                    <span class="skill-name">CSS3</span>
+                </div>
+                <div class="skill-item" data-tech="Node.js" data-desc-it="Runtime JavaScript server-side" data-desc-en="Server-side JavaScript runtime">
+                    <i class="fab fa-node-js" style="color: #339933;"></i>
+                    <span class="skill-name">Node.js</span>
+                </div>
+                <div class="skill-item" data-tech="Python" data-desc-it="Linguaggio versatile per vari scopi" data-desc-en="Versatile programming language">
+                    <i class="fab fa-python" style="color: #3776AB;"></i>
+                    <span class="skill-name">Python</span>
+                </div>
+                <div class="skill-item" data-tech="SQL" data-desc-it="Gestione database relazionali" data-desc-en="Relational database management">
+                    <i class="fas fa-database" style="color: #336791;"></i>
+                    <span class="skill-name">SQL</span>
+                </div>
+                <div class="skill-item" data-tech="MongoDB" data-desc-it="Database NoSQL document-based" data-desc-en="Document-based NoSQL database">
+                    <i class="fas fa-leaf" style="color: #47A248;"></i>
+                    <span class="skill-name">MongoDB</span>
+                </div>
+                <!-- Duplicate items for seamless looping -->
+                <div class="skill-item" data-tech="React" data-desc-it="Libreria JavaScript per interfacce utente" data-desc-en="JavaScript library for building UIs">
+                    <i class="fab fa-react" style="color: #61DAFB;"></i>
+                    <span class="skill-name">React</span>
+                </div>
+                <div class="skill-item" data-tech="Vue" data-desc-it="Framework JavaScript progressivo" data-desc-en="Progressive JavaScript framework">
+                    <i class="fab fa-vuejs" style="color: #4FC08D;"></i>
+                    <span class="skill-name">Vue</span>
+                </div>
+                <div class="skill-item" data-tech="JavaScript" data-desc-it="Linguaggio di programmazione per il web" data-desc-en="Web programming language">
+                    <i class="fab fa-js-square" style="color: #F7DF1E;"></i>
+                    <span class="skill-name">JavaScript</span>
+                </div>
             </div>
         </div>
         
-    </section>
+        <!-- Skill Description -->
+        <div class="skill-description">
+            <p id="current-skill-desc" data-it="Seleziona una tecnologia per vedere la descrizione" data-en="Select a technology to view description">
+                Seleziona una tecnologia per vedere la descrizione
+            </p>
+        </div>
+    </div>
+</section>
 
     <!-- Courses Section -->
     <section class="courses" id="courses">
@@ -368,236 +407,116 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <section class="projects" id="career">
         <div class="container">
-            <h2 class="section-title" data-it="Progetti" data-en="Projects">Progetti</h2>
+            <h2 class="section-title" data-it="Carriera & Formazione" data-en="Career & Education">Carriera & Formazione</h2>
             
             <div class="projects-grid">
-                <div class="project-card">
+                <!-- Esperienza lavorativa attuale -->
+                <div class="project-card current">
                     <div class="project-header">
-                        <h3>E-Commerce Platform</h3>
+                        <h3>Frontend Developer</h3>
                         <div class="project-links">
-                            <a href="#" class="project-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="project-link" title="Live Demo">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <span class="current-badge" data-it="In corso" data-en="Current">In corso</span>
                         </div>
                     </div>
                     
-                    <p class="project-description" data-it="Piattaforma e-commerce completa con gestione inventario, pagamenti e dashboard admin." data-en="Complete e-commerce platform with inventory management, payments and admin dashboard.">
-                        Piattaforma e-commerce completa con gestione inventario, pagamenti e dashboard admin.
+                    <p class="project-description" data-it="Sviluppo di interfacce utente responsive con React e TypeScript. Collaborazione con team cross-funzionali per implementare nuove features." data-en="Developing responsive user interfaces with React and TypeScript. Collaborating with cross-functional teams to implement new features.">
+                        Sviluppo di interfacce utente responsive con React e TypeScript.
                     </p>
                     
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">SCSS</span>
                     </div>
                     
                     <div class="code-preview">
                         <div class="code-header">
-                            <span class="code-title">ProductCard.jsx</span>
-                            <button class="code-toggle">
-                                <i class="fas fa-code"></i>
-                            </button>
+                            <span class="code-title">Azienda: TechSolutions Srl</span>
+                            <span class="code-period">2022 - Presente</span>
                         </div>
                         <div class="code-content">
-                            <pre><code>const ProductCard = ({ product }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  
-  const handleAddToCart = async () => {
-    setIsLoading(true);
-    try {
-      await addToCart(product.id);
-      showNotification('Prodotto aggiunto!');
-    } catch (error) {
-      showError('Errore nell\'aggiunta');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  return (
-    &lt;div className="product-card"&gt;
-      &lt;img src={product.image} alt={product.name} /&gt;
-      &lt;h3&gt;{product.name}&lt;/h3&gt;
-      &lt;p className="price"&gt;€{product.price}&lt;/p&gt;
-      &lt;button 
-        onClick={handleAddToCart}
-        disabled={isLoading}
-        className="add-to-cart-btn"
-      &gt;
-        {isLoading ? 'Aggiungendo...' : 'Aggiungi al carrello'}
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-};</code></pre>
+                            <ul class="experience-list">
+                                <li data-it="Ottimizzazione prestazioni applicazioni web (+40% velocità)" data-en="Optimized web applications performance (+40% speed)">Ottimizzazione prestazioni applicazioni web</li>
+                                <li data-it="Implementazione sistema design system aziendale" data-en="Implemented company design system">Implementazione sistema design system</li>
+                                <li data-it="Mentorship per nuovi sviluppatori" data-en="Mentorship for new developers">Mentorship per nuovi sviluppatori</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Esperienza lavorativa precedente -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Task Management App</h3>
+                        <h3>Junior Web Developer</h3>
                         <div class="project-links">
-                            <a href="#" class="project-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="project-link" title="Live Demo">
-                                <i class="fas fa-external-link-alt"></i>
+                            <a href="#" class="project-link" title="Company Website">
+                                <i class="fas fa-building"></i>
                             </a>
                         </div>
                     </div>
                     
-                    <p class="project-description" data-it="App per la gestione di progetti e task con collaborazione in tempo reale." data-en="Project and task management app with real-time collaboration.">
-                        App per la gestione di progetti e task con collaborazione in tempo reale.
+                    <p class="project-description" data-it="Sviluppo e manutenzione siti web aziendali. Collaborazione con designer per implementazione UI/UX." data-en="Development and maintenance of company websites. Collaboration with designers for UI/UX implementation.">
+                        Sviluppo e manutenzione siti web aziendali.
                     </p>
                     
                     <div class="project-tech">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Socket.io</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">MySQL</span>
                     </div>
                     
                     <div class="code-preview">
                         <div class="code-header">
-                            <span class="code-title">TaskBoard.vue</span>
-                            <button class="code-toggle">
-                                <i class="fas fa-code"></i>
-                            </button>
+                            <span class="code-title">Azienda: WebAgency Italia</span>
+                            <span class="code-period">2020 - 2022</span>
                         </div>
                         <div class="code-content">
-                            <pre><code>&lt;template&gt;
-  &lt;div class="task-board"&gt;
-    &lt;div 
-      v-for="column in columns" 
-      :key="column.id"
-      class="task-column"
-      @drop="onDrop($event, column.id)"
-      @dragover.prevent
-    &gt;
-      &lt;h3&gt;{{ column.title }}&lt;/h3&gt;
-      &lt;TaskCard
-        v-for="task in column.tasks"
-        :key="task.id"
-        :task="task"
-        @drag-start="onDragStart"
-        draggable="true"
-      /&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default {
-  data() {
-    return {
-      draggedTask: null,
-      columns: [
-        { id: 'todo', title: 'Da fare', tasks: [] },
-        { id: 'progress', title: 'In corso', tasks: [] },
-        { id: 'done', title: 'Completato', tasks: [] }
-      ]
-    }
-  },
-  methods: {
-    onDragStart(task) {
-      this.draggedTask = task;
-    },
-    onDrop(event, columnId) {
-      if (this.draggedTask) {
-        this.moveTask(this.draggedTask.id, columnId);
-        this.draggedTask = null;
-      }
-    }
-  }
-}
-&lt;/script&gt;</code></pre>
+                            <ul class="experience-list">
+                                <li data-it="Realizzazione 15+ siti web clienti" data-en="Built 15+ client websites">Realizzazione 15+ siti web clienti</li>
+                                <li data-it="Miglioramento SEO siti esistenti" data-en="Improved SEO for existing sites">Miglioramento SEO siti esistenti</li>
+                                <li data-it="Integrazione sistemi di pagamento" data-en="Payment systems integration">Integrazione sistemi di pagamento</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Formazione accademica -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Weather Dashboard</h3>
+                        <h3 data-it="Laurea in Informatica" data-en="Computer Science Degree">Laurea in Informatica</h3>
                         <div class="project-links">
-                            <a href="#" class="project-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="project-link" title="Live Demo">
-                                <i class="fas fa-external-link-alt"></i>
+                            <a href="#" class="project-link" title="University Website">
+                                <i class="fas fa-graduation-cap"></i>
                             </a>
                         </div>
                     </div>
                     
-                    <p class="project-description" data-it="Dashboard meteo con previsioni, grafici interattivi e geolocalizzazione." data-en="Weather dashboard with forecasts, interactive charts and geolocation.">
-                        Dashboard meteo con previsioni, grafici interattivi e geolocalizzazione.
+                    <p class="project-description" data-it="Specializzazione in Sviluppo Software e Architetture Web. Tesi su 'Framework JavaScript per applicazioni real-time'." data-en="Specialization in Software Development and Web Architectures. Thesis on 'JavaScript frameworks for real-time applications'.">
+                        Specializzazione in Sviluppo Software e Architetture Web.
                     </p>
                     
                     <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Chart.js</span>
-                        <span class="tech-tag">OpenWeather API</span>
-                        <span class="tech-tag">PWA</span>
+                        <span class="tech-tag">Algoritmi</span>
+                        <span class="tech-tag">Basi di dati</span>
+                        <span class="tech-tag">Reti</span>
+                        <span class="tech-tag">Intelligenza Artificiale</span>
                     </div>
                     
                     <div class="code-preview">
                         <div class="code-header">
-                            <span class="code-title">WeatherChart.js</span>
-                            <button class="code-toggle">
-                                <i class="fas fa-code"></i>
-                            </button>
+                            <span class="code-title">Università degli Studi di Milano</span>
+                            <span class="code-period">2017 - 2020</span>
                         </div>
                         <div class="code-content">
-                            <pre><code>import { Line } from 'react-chartjs-2';
-
-const WeatherChart = ({ weatherData }) => {
-  const chartData = {
-    labels: weatherData.map(item => 
-      new Date(item.dt * 1000).toLocaleDateString()
-    ),
-    datasets: [
-      {
-        label: 'Temperatura (°C)',
-        data: weatherData.map(item => item.main.temp),
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        tension: 0.4
-      },
-      {
-        label: 'Umidità (%)',
-        data: weatherData.map(item => item.main.humidity),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        tension: 0.4
-      }
-    ]
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Previsioni Meteo 5 Giorni'
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  };
-
-  return &lt;Line data={chartData} options={options} /&gt;;
-};</code></pre>
+                            <ul class="experience-list">
+                                <li data-it="Voto finale: 110/110 con lode" data-en="Final grade: 110/110 cum laude">Voto finale: 110/110 con lode</li>
+                                <li data-it="Erasmus+ in Spagna (6 mesi)" data-en="Erasmus+ in Spain (6 months)">Erasmus+ in Spagna (6 mesi)</li>
+                                <li data-it="Progetto laboratorio: Piattaforma e-learning" data-en="Lab project: E-learning platform">Progetto laboratorio: Piattaforma e-learning</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
