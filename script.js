@@ -34,7 +34,6 @@ class PortfolioManager {
             });
         });
     }
-
     switchLanguage(lang) {
         this.currentLang = lang;
         document.documentElement.lang = lang;
@@ -42,16 +41,17 @@ class PortfolioManager {
         // Update all translatable elements
         const elements = document.querySelectorAll('[data-it][data-en]');
         elements.forEach(element => {
-            const text = element.dataset[lang];
+            const text = element.getAttribute(`data-${lang}`);
             if (text) {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                     element.placeholder = text;
                 } else {
-                    element.textContent = text;
+                    // Usa innerHTML invece di textContent per interpretare i <br>
+                    element.innerHTML = text.replace(/\n/g, ''); // Rimuove eventuali newline raw
                 }
             }
         });
-
+    
         // Update typing text
         this.updateTypingText();
         
